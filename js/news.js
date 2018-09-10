@@ -56,7 +56,7 @@ var News = React.createClass({
 
 var NewsList = React.createClass({
   getInitialState: function(){
-    return {newslist:[], url:"http://nhnsbdev.herokuapp.com/api/v1/top"};
+    return {newslist:[], url:"http://hnsb.herokuapp.com/api/v1/top"};
   },
 
   getNewsList: function(){
@@ -77,11 +77,11 @@ var NewsList = React.createClass({
   componentWillMount: function() {
     this.pubsub_token = PubSub.subscribe('CURRENT_URL', function(topic, message) {
       if (message === "top"){
-        this.setState({ url: "http://nhnsbdev.herokuapp.com/api/v1/top" });
+        this.setState({ url: "http://hnsb.herokuapp.com/api/v1/top" });
       } else if (message === "new"){
-        this.setState({ url: "http://nhnsbdev.herokuapp.com/api/v1/newest" });
+        this.setState({ url: "http://hnsb.herokuapp.com/api/v1/newest" });
       } else if (message === "best") {
-        this.setState({ url: "http://nhnsbdev.herokuapp.com/api/v1/best" });
+        this.setState({ url: "http://hnsb.herokuapp.com/api/v1/best" });
       }
 
       this.getNewsList();
